@@ -1,0 +1,25 @@
+{
+  "name": "Kristina Notes - Заметки для любимой",
+  "short_name": "Kristina Notes",
+  "description": "Романтическое приложение заметок с музыкой для Кристины ❤️",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#e05aca",
+  "theme_color": "#ff69b4",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "Кристина фото.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "Кристина фото.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}
+

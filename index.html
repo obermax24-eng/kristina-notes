@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- ============================================
+             PWA МЕТА-ТЕГИ
+             ============================================ -->
+        <!-- theme-color - цвет панели браузера на мобильных -->
+        <meta name="theme-color" content="#ff69b4">
+        
+        <!-- apple-mobile-web-app-capable - полноэкранный режим на iOS -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        
+        <!-- apple-mobile-web-app-status-bar-style - стиль статус-бара на iOS -->
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        
+        <!-- apple-mobile-web-app-title - название приложения на iOS -->
+        <meta name="apple-mobile-web-app-title" content="Kristina Notes">
+        
+        <title>Kristina Notes - Заметки для любимой ❤️</title>
+        
+        <!-- Подключаем CSS -->
+        <link rel="stylesheet" href="style.css">
+        
+        <!-- Подключаем манифест PWA -->
+        <link rel="manifest" href="manifest.json">
+        
+        <!-- Иконка для iOS (используем фото Кристины) -->
+        <link rel="apple-touch-icon" href="Кристина фото.jpg">
+    </head>
+    <body>
+        <div class="app">
+            
+            </div>
+            <div class="notes-wrapper">
+                <h1 class="notki-title">Заметки</h1>
+                <blockquote class="quote"> <em>
+                    "Моя любовь - лишь ты  - Кристина.
+                    Я счастлив, что тебя люблю!!!
+                    Ты мои мысли покорила, неся сквозь мрак в мой мир зарю!"</em></blockquote>
+                <img src="Кристина фото.jpg" alt="Кристина фото" class="photo">
+                <h2 class="subtitle">Приложение посвящается моей любимой девушке Кристине</h2>
+                <button id="add-note-btn" class="button">Добавить заметку</button>
+                <textarea id="note-text" placeholder="Введите заметку" style="
+                width: 200px;
+                height: 100px;"></textarea>
+                <button id="save-note-btn" class="button">Сохранить заметку</button>
+                <button id="delete-note-btn" class="button">Удалить заметку</button>
+                
+                <!-- Список сохранённых заметок -->
+                <div id="notes-list" class="notes-list"></div>
+                
+                <!-- ============================================
+                     МУЗЫКАЛЬНЫЙ ПЛЕЕР
+                     ============================================ -->
+                <div class="music-player">
+                    <!-- Заголовок плеера -->
+                    <div class="music-title">🎵 Музыка</div>
+                    
+                    <!-- Кнопки управления -->
+                    <div class="music-controls">
+                        <!-- Кнопки перемотки и Play/Pause -->
+                        <div class="playback-controls">
+                            <!-- Кнопка перемотки назад (-10 секунд) -->
+                            <button id="rewind-btn" class="rewind-btn" title="Назад на 10 сек">⏪ -10с</button>
+                            
+                            <!-- Кнопка Play/Pause -->
+                            <button id="play-pause-btn" class="music-btn">▶️ Включить</button>
+                            
+                            <!-- Кнопка перемотки вперёд (+10 секунд) -->
+                            <button id="forward-btn" class="forward-btn" title="Вперёд на 10 сек">+10с ⏩</button>
+                        </div>
+                        
+                        <!-- ============================================
+                             ПОЛОСА ПРОКРУТКИ ТРЕКА
+                             ============================================ -->
+                        <div class="progress-control">
+                            <!-- Текущее время -->
+                            <span id="current-time" class="time-display">0:00</span>
+                            
+                            <!-- Полоса прогресса (можно кликать для перемотки) -->
+                            <input type="range" id="progress-slider" min="0" max="100" value="0" class="progress-slider">
+                            
+                            <!-- Общая длительность -->
+                            <span id="total-time" class="time-display">0:00</span>
+                        </div>
+                        
+                        <!-- Слайдер громкости -->
+                        <div class="volume-control">
+                            <span>🔊</span>
+                            <input type="range" id="volume-slider" min="0" max="100" value="40" class="volume-slider">
+                            <span id="volume-value">40%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="love-text">❤️Я Люблю Тебя Кристина❤️</div>
+            </div>
+        </div>
+        
+        <!-- Аудио элемент (скрытый, управляется через плеер) -->
+        <audio id="bg-music" src="Я люблю тебя Кристина.mp3" loop></audio>
+        
+        <!-- Подключаем JavaScript -->
+        <script src="app.js"></script>
+    </body>
+</html>

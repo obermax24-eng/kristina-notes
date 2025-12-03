@@ -1,0 +1,356 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #e05aca;
+    min-height: 100vh;
+    display: flex;
+    position: relative; /* Важно! Для правильного позиционирования падающих сердечек */
+    overflow-x: hidden; /* Скрываем горизонтальную прокрутку */
+}
+
+
+.photo {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #0deafa;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+.subtitle {
+    font-size: 18px;
+    color: #cc3030;
+    margin-bottom: 20px;
+}
+.notes-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    align-items: flex-start;
+    font-style: italic;
+    align-self: flex-end;
+}
+.note-text {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #0deafa;
+    border-radius: 8px;
+    font-size: 16px;
+}
+.notki-title {color: #cc3030;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.quote {font-style: italic; 
+    border-left: 
+    3px solid #ccc; 
+    padding-left: 12px; 
+    margin-right: 20px;
+}
+.button {
+    border-radius: 20px;
+    background: linear-gradient(90deg, #cb1497, #e464ce);
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+}
+
+/* ============================================
+   СТИЛИ МУЗЫКАЛЬНОГО ПЛЕЕРА
+   ============================================ */
+.music-player {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 15px;
+    margin: 20px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+.music-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #cc3030;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.music-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.music-btn {
+    background: linear-gradient(90deg, #ff69b4, #ff1493);
+    border: none;
+    border-radius: 25px;
+    padding: 12px 30px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
+    transition: transform 0.2s;
+}
+
+.music-btn:hover {
+    transform: scale(1.05); /* Увеличивается при наведении */
+}
+
+.music-btn:active {
+    transform: scale(0.95); /* Уменьшается при нажатии */
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.volume-control span {
+    font-size: 18px;
+}
+
+.volume-slider {
+    flex: 1; /* Занимает всё доступное пространство */
+    height: 6px;
+    border-radius: 3px;
+    background: #ffb6c1;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Стилизация ползунка слайдера */
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #ff69b4;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #ff69b4;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#volume-value {
+    min-width: 40px;
+    text-align: right;
+    font-weight: bold;
+    color: #cc3030;
+}
+
+/* ============================================
+   КНОПКИ ПЕРЕМОТКИ
+   ============================================ */
+.playback-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.rewind-btn, .forward-btn {
+    background: linear-gradient(90deg, #23b4f7, #ec95dd);
+    border: none;
+    border-radius: 15px;
+    padding: 8px 15px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(35, 180, 247, 0.4);
+    transition: transform 0.2s;
+}
+
+.rewind-btn:hover, .forward-btn:hover {
+    transform: scale(1.05);
+}
+
+.rewind-btn:active, .forward-btn:active {
+    transform: scale(0.95);
+}
+
+/* ============================================
+   ПОЛОСА ПРОКРУТКИ ТРЕКА
+   ============================================ */
+.progress-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 400px;
+    margin: 15px 0;
+}
+
+.time-display {
+    font-size: 12px;
+    font-weight: bold;
+    color: #cc3030;
+    min-width: 45px;
+    text-align: center;
+}
+
+.progress-slider {
+    flex: 1; /* Занимает всё доступное пространство */
+    height: 8px;
+    border-radius: 4px;
+    background: #ffb6c1;
+    outline: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* Стилизация ползунка progress slider */
+.progress-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ff69b4;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(255, 105, 180, 0.5);
+    transition: transform 0.2s;
+}
+
+.progress-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2); /* Увеличивается при наведении */
+}
+
+.progress-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ff69b4;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 6px rgba(255, 105, 180, 0.5);
+    transition: transform 0.2s;
+}
+
+.progress-slider::-moz-range-thumb:hover {
+    transform: scale(1.2);
+}
+
+/* Прогресс-бар (заполненная часть) */
+.progress-slider::-webkit-slider-runnable-track {
+    height: 8px;
+    border-radius: 4px;
+    background: linear-gradient(to right, #ff69b4 0%, #ff69b4 var(--progress, 0%), #ffb6c1 var(--progress, 0%), #ffb6c1 100%);
+}
+
+.progress-slider::-moz-range-track {
+    height: 8px;
+    border-radius: 4px;
+    background: #ffb6c1;
+}
+
+/* ============================================
+   СПИСОК ЗАМЕТОК
+   ============================================ */
+.notes-list {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
+}
+
+.note-item {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-left: 4px solid #ff69b4;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.note-item .note-date {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 5px;
+}
+
+.note-item .note-content {
+    font-size: 14px;
+    color: #333;
+    word-wrap: break-word;
+}
+
+.note-item .delete-note-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #ff4444;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.note-item .delete-note-btn:hover {
+    background: #cc0000;
+}
+
+/* ============================================
+   АНИМАЦИЯ ПАДАЮЩИХ СЕРДЕЧЕК
+   ============================================ */
+/* @keyframes fall - создаём анимацию с именем "fall" */
+/* Это анимация падения сердечек сверху вниз */
+@keyframes fall {
+  /* from (0%) - начальное состояние (сверху страницы, вне видимой области) */
+  0% {
+    transform: translateY(-50px); /* Начинаем выше экрана */
+    opacity: 1; /* Полностью видимое */
+  }
+  
+  /* to (100%) - конечное состояние (внизу страницы) */
+  100% {
+    transform: translateY(calc(100vh + 50px)); /* 100vh = высота экрана + 50px (упало вниз и скрылось) */
+    opacity: 0; /* Стало невидимым (исчезло) */
+  }
+}
+
+/* Дополнительные стили для падающих сердечек */
+/* Эти стили применяются к элементам, созданным через JavaScript */
+body > div[style*="position: fixed"] {
+  /* Дополнительные стили для сердечек */
+  user-select: none; /* Нельзя выделить сердечко мышкой */
+  will-change: transform; /* Оптимизация производительности анимации */
+}
